@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Entries</title>
+</head>
+
+<body>
+    <h1>All Entries</h1>
+
+    <% for(let e of entries){ %>
+        <h1>Title: <%= e.title %>
+        </h1>
+        <h2>Content: </h2>
+        <p>
+            <%= e.entryBody%>
+        </p>
+        <br>
+        <% if(e.owner._id===user._id) {%>
+            <form method="put" action="/entries/<%= e.id %>?_method=PUT">
+                <button>Edit</button>
+            </form>
+            <form method="delete" action="/entries/<%= e.id %>?_method=DELETE">
+                <button>Delete</button>
+            </form>
+            <%}%>
+                <p>-----------------------------------------------------------------------------------------------------
+                </p>
+                <br>
+                <%}%>
+
+
+</body>
+
+</html>
